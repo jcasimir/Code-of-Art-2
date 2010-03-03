@@ -30,7 +30,7 @@ def load_parameters()
   job.delete
   
   values[:width] = values[:line_height]
-  values[:height] = (values[:text].length * values[:character_width] * 1.07).to_i
+  values[:height] = ((values[:text].length + 1) * values[:character_width] * 1.1).to_i
   values
 end
 
