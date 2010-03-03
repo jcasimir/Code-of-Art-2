@@ -1,0 +1,9 @@
+== Code of Art 2
+
+In order to follow this tutorial you'll need to install the gems "ruby-processing" and "beanstalk-client".
+
+In addition, you'll need to install beanstalkd.
+  On MacOS X if you have homebrew installed just run "brew install beanstalkd"
+  Or, with Macports installed "sudo port install beanstalkd"
+  On Fedora, "yum install beanstalkd"
+  Otherwise, from source: http://github.com/kr/beanstalkd

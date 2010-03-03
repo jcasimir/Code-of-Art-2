@@ -1,0 +1,28 @@
+- title "Assignments"
+
+%table
+  %tr
+    %th
+      Person
+    - @assignments.each do |a|
+      %th
+        = image_tag(a.image_path) #= a.name
+        
+
+  - @people.each do |p|
+    %tr
+      %td
+        = p.name
+      - @assignments.each do |a|
+        %td
+          = a.grades.find_by_person_id(p).try(:value)
+
+  %tr
+    %th
+      Actions
+    - @assignments.each do |a|
+      %td
+        = link_to 'E', edit_assignment_path(a)
+        = link_to 'D', a, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Assignment", new_assignment_path

@@ -1,0 +1,12 @@
+- title "Assignment"
+
+%p
+  %strong Name:
+  =h @assignment.name
+
+%p
+  = link_to "Edit", edit_assignment_path(@assignment)
+  |
+  = link_to "Destroy", @assignment, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", assignments_path

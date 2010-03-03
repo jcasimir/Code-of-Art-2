@@ -1,0 +1,8 @@
+- title "Edit Person"
+
+= render :partial => 'form'
+
+%p
+  = link_to "Show", person_path(@person)
+  |
+  = link_to "View All", people_path

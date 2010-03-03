@@ -1,0 +1,15 @@
+- title "Grades"
+
+%table
+  %tr
+    %th Value
+    %th Name
+  - for grade in @grades
+    %tr
+      %td= h grade.value
+      %td= h grade.name
+      %td= link_to 'Show', grade
+      %td= link_to 'Edit', edit_grade_path(grade)
+      %td= link_to 'Destroy', grade, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Grade", new_grade_path

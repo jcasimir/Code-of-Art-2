@@ -1,0 +1,16 @@
+- form_for @grade do |f|
+  = f.error_messages
+  %p
+    = f.label :value
+    %br
+    = f.text_field :value
+  %p
+    = f.label :person_id
+    %br
+    = f.text_field :person_id
+  %p
+    = f.label :assignment_id
+    %br
+    = f.text_field :assignment_id
+  %p
+    = f.submit "Submit"

@@ -1,0 +1,15 @@
+- title "Grade"
+
+%p
+  %strong Value:
+  =h @grade.value
+%p
+  %strong Name:
+  =h @grade.name
+
+%p
+  = link_to "Edit", edit_grade_path(@grade)
+  |
+  = link_to "Destroy", @grade, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", grades_path

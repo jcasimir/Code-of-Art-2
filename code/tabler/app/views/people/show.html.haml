@@ -1,0 +1,12 @@
+- title "Person"
+
+%p
+  %strong Name:
+  =h @person.name
+
+%p
+  = link_to "Edit", edit_person_path(@person)
+  |
+  = link_to "Destroy", @person, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", people_path
