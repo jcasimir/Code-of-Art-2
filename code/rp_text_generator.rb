@@ -1,53 +1,65 @@
+#  BEANSTALK STEPS  
+#
+# ✓. LOAD_PATH and REQUIRES 
+# ✓. Modify the SETUP
+# ✓. Find the Job and Load It        
+# ✓. Calculate Image Size  
+# ✓. Load Params & Size Once Each DRAW     
+# ✓. Set the TARGET Directory   
+
+Dir.glob(File.join("vendor", "gems", "*", "lib")).each do |lib|
+  $LOAD_PATH.unshift(File.expand_path(lib))
+end
+
+require 'beanstalk-client'
+require 'yaml'
+
+TARGET_DIR = "./tabler/public/images/generated/"           # <-- NEW
+
 def setup
-  @params = load_parameters
-  size @params[:width], @params[:height]
+  size 200,200                                          
+  @beanstalk = Beanstalk::Pool.new(['0.0.0.0:11300'])   
 end
 
 def load_parameters
-  default_text = "Week 6 Quiz"
-  default_file_name = "output"
-  default_file_type = "png"
-  default_font = load_font "fonts/Silkscreen-8.vlw"
-  default_font_size = 8
-  default_line_height = default_font_size
-  default_font_color = 0
-  default_rotation = radians -90
-  default_background = 255
-  default_character_width = 5
-  default_character_height = 3
-
-  default_x_max = default_character_height + 4
-  default_y_max = default_text.length * default_character_width
-
-  
-  params = {
-    :text => "Week 6 Quiz",
-    :height => default_y_max,
-    :width => default_x_max,
-    :font_size => default_font_size,
-    :file_type => default_file_type,
-    :line_height => default_line_height,
-    :rotation => default_rotation,
-    :font => default_font,
-    :file_name => default_file_name,
-    :background => default_background,
-    :font_color => default_font_color
+  defaults = {
+    :width => 100,
+    :height => 100,
+    :background => 255,
+    :line_height => 8,                            
+    :font => load_font("fonts/Silkscreen-8.vlw"), 
+    :font_color => 0,                             
+    :text => "default text",
+    :rotation => radians(-90),
+    :file_name => "default",                          
+    :file_type => "png",
+    :character_width => 5                           
   }
+  
+  job = @beanstalk.reserve                    
+  values = defaults.merge(YAML.load(job.body))
+  job.delete                        
+  
+  values[:width] = values[:line_height]                   
+  values[:height] = ((values[:text].length + 1) * values[:character_width] * 1.2).to_i  
+  values                                                  
 end
 
 def draw
-    # Set the background and text colors
-    background @params[:background]
-    
-    # Move the origin and rotate the plane
-    translate @params[:line_height] -2, @params[:height]
-    rotate @params[:rotation]
-
-    #text_align LEFT
-    fill @params[:font_color]
-    text_font @params[:font]
-    text @params[:text], 0, 0
-
-    save @params[:file_name] + "." + @params[:file_type]
-    exit
+  @params = load_parameters                   
+  size @params[:width], @params[:height]      
+  
+  background @params[:background]
+  
+  # Move the Origin & Rotate
+  translate @params[:line_height] -2, @params[:height]  
+  rotate @params[:rotation]                           
+  
+  # Write Text
+  fill @params[:font_color]                       
+  text_font @params[:font]
+  text @params[:text], 0, 0
+  
+  # Save the File
+  save TARGET_DIR + @params[:file_name] + "." + @params[:file_type]   # <-- NEW
 end

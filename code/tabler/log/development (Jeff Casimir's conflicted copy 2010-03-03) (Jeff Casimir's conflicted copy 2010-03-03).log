@@ -1,0 +1,81 @@
+# Logfile created on Wed Mar 03 15:43:05 -0500 2010
+
+Processing AssignmentsController#index (for 127.0.0.1 at 2010-03-03 15:45:56) [GET]
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" [0m
+  [4;35;1mPerson Load (0.7ms)[0m   [0mSELECT * FROM "people" [0m
+Rendering template within layouts/application
+Rendering assignments/index
+  [4;36;1mGrade Load (0.4ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 1) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 1) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 1) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 2) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 2) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 2) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 3) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 3) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 3) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 4) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 4) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 4) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 5) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 5) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 5) AND ("grades".assignment_id = 3) LIMIT 1[0m
+Completed in 224ms (View: 179, DB: 6) | 200 OK [http://localhost/assignments/]
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2010-03-03 15:46:01) [GET]
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered assignments/_form (4.9ms)
+Completed in 25ms (View: 18, DB: 0) | 200 OK [http://localhost/assignments/new]
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2010-03-03 15:46:06) [POST]
+  Parameters: {"commit"=>"Submit", "assignment"=>{"name"=>"Sample Assignment"}, "authenticity_token"=>"4StaFhL0KA5q2YGbu/+LhKCyIgFrV6hCwBQ1uUvAOXY="}
+  [4;35;1mAssignment Create (0.6ms)[0m   [0mINSERT INTO "assignments" ("name", "created_at", "updated_at") VALUES('Sample Assignment', '2010-03-03 20:46:06', '2010-03-03 20:46:06')[0m
+Redirected to http://localhost:3000/assignments/6
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/assignments]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2010-03-03 15:46:06) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mAssignment Load (0.3ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+Completed in 36ms (View: 20, DB: 0) | 200 OK [http://localhost/assignments/6]
+
+
+Processing AssignmentsController#index (for 127.0.0.1 at 2010-03-03 15:46:08) [GET]
+  [4;35;1mAssignment Load (0.8ms)[0m   [0mSELECT * FROM "assignments" [0m
+  [4;36;1mPerson Load (0.6ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/application
+Rendering assignments/index
+  [4;35;1mGrade Load (0.4ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 1) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;36;1mGrade Load (0.4ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 1) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 1) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;36;1mGrade Load (0.2ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 1) AND ("grades".assignment_id = 6) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 2) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 2) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 2) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;36;1mGrade Load (0.2ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 2) AND ("grades".assignment_id = 6) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 3) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 3) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 3) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;36;1mGrade Load (0.1ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 3) AND ("grades".assignment_id = 6) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 4) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 4) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 4) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;36;1mGrade Load (0.2ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 4) AND ("grades".assignment_id = 6) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 5) AND ("grades".assignment_id = 1) LIMIT 1[0m
+  [4;36;1mGrade Load (0.3ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 5) AND ("grades".assignment_id = 2) LIMIT 1[0m
+  [4;35;1mGrade Load (0.3ms)[0m   [0mSELECT * FROM "grades" WHERE ("grades"."person_id" = 5) AND ("grades".assignment_id = 3) LIMIT 1[0m
+  [4;36;1mGrade Load (0.2ms)[0m   [0;1mSELECT * FROM "grades" WHERE ("grades"."person_id" = 5) AND ("grades".assignment_id = 6) LIMIT 1[0m
+Completed in 47ms (View: 31, DB: 7) | 200 OK [http://localhost/assignments]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-03 15:46:08) [GET]
+
+ActionController::RoutingError (No route matches "/images/generated/assignment_id_6.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

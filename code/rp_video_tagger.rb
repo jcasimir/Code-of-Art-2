@@ -3,6 +3,7 @@ import "processing.video"
 
 def setup
   size 640, 480
+  
   @video = Capture.new(self, width, height, 30)
   @params = load_parameters
 end
@@ -14,7 +15,7 @@ def load_parameters
     :character_width => 5,
     :font => load_font("fonts/Silkscreen-8.vlw"),
     :font_color => 255,
-    :text => "Secret Property of NoVARUG"
+    :text => "Secret Property of BMore on Rails"
   }
   
   values = defaults
