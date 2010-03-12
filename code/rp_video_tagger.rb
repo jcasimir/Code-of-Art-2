@@ -15,7 +15,7 @@ def load_parameters
     :character_width => 5,
     :font => load_font("fonts/Silkscreen-8.vlw"),
     :font_color => 255,
-    :text => "Secret Property of BMore on Rails"
+    :text => "Secret Property of Mountain West Ruby Conf"
   }
   
   values = defaults
